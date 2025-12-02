@@ -44,7 +44,7 @@ TypeScript must be enabled for all code. Component props must be explicitly type
 **Framework**: Next.js 14+ (App Router preferred)  
 **Styling**: Tailwind CSS 3+  
 **Language**: TypeScript (strict mode enabled)  
-**Package Manager**: npm, yarn, or pnpm  
+**Package Manager**: pnpm  
 **Node Version**: 18+ LTS
 
 All dependencies must be actively maintained. Prefer official Next.js and React patterns over third-party abstractions.
