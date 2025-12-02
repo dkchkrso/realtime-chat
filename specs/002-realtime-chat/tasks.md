@@ -51,6 +51,7 @@ Using Next.js 14 App Router structure with integrated frontend + backend:
 - [ ] T015 [P] Create profanity filter with blocklist in src/lib/profanity-filter.ts
 - [ ] T016 Create server WebSocket handler with connection upgrade logic in src/lib/websocket/server.ts
 - [ ] T017 Create rate limiter utility (10 msg/min per user) in src/lib/rate-limiter.ts
+- [ ] T017b [P] Create structured logger utility with timestamp and context in src/lib/logger.ts
 - [ ] T018 Create REST API route for listing rooms (GET /api/rooms) in app/api/rooms/route.ts
 - [ ] T019 Create REST API route for creating rooms (POST /api/rooms) in app/api/rooms/route.ts
 - [ ] T020 Create REST API route for room details (GET /api/rooms/[roomId]) in app/api/rooms/[roomId]/route.ts

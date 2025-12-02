@@ -47,7 +47,7 @@ A user arrives at the website, sees existing chat rooms or creates a new one by 
 1. **Given** a user opens the website, **When** they arrive at the homepage, **Then** they see a list of existing chat rooms and an option to create a new room
 2. **Given** a user wants to create a new room, **When** they enter a room name and submit, **Then** a new chat room is created and they are taken to that room
 3. **Given** a user sees available chat rooms, **When** they click on an existing room, **Then** they are taken to that room's chat interface
-4. **Given** a user joins a chat room, **When** the room loads, **Then** they see the last 50 messages from that room's history (or empty state for new rooms)
+4. **Given** a user joins a chat room, **When** the room loads, **Then** they see the last 50 messages from that room's history in chronological order (oldest first, or empty state for new rooms)
 5. **Given** a user is in a chat room, **When** they want to switch rooms, **Then** they can navigate back to the room list and select a different room
 
 ---
@@ -115,7 +115,7 @@ A user in a chat room can see a list of other users currently online in that roo
 - **FR-008**: System MUST NOT require authentication, accounts, or passwords
 - **FR-009**: System MUST prompt users to enter a display name when joining a chat room
 - **FR-010**: System MUST validate display names to be between 2 and 30 characters
-- **FR-011**: Display names MUST be unique within a chat room (system appends numbers if duplicates detected)
+- **FR-011**: Display names MUST be unique within a chat room (system appends numbers in format "Name (2)", "Name (3)" etc. if duplicates detected, e.g., "Alice" becomes "Alice (2)")
 - **FR-012**: System MUST preserve user's display name for the duration of their browser session
 
 #### Chat Rooms
@@ -137,10 +137,10 @@ A user in a chat room can see a list of other users currently online in that roo
 - **FR-024**: System MUST handle at least 100 concurrent users across all chat rooms
 - **FR-025**: System MUST implement rate limiting of 10 messages per minute per user
 - **FR-026**: System MUST indicate connection status to users (connected/disconnected)
-- **FR-027**: System MUST attempt to reconnect automatically if connection is lost
+- **FR-027**: System MUST attempt to reconnect automatically if connection is lost using exponential backoff strategy (starting at 1 second, doubling each attempt, max 10 seconds between attempts, maximum 5 attempts before giving up)
 - **FR-028**: System MUST queue messages locally when user is disconnected and display them with "sending..." status
 - **FR-029**: System MUST automatically send all queued messages upon successful reconnection in the order they were created
-- **FR-030**: System MUST persist message history to survive server restarts
+- **FR-030**: System MUST persist message history to survive server restarts (see FR-037 for retention policy)
 
 #### Content Moderation
 - **FR-031**: System MUST filter messages for common profanity and offensive words before delivery
@@ -153,14 +153,14 @@ A user in a chat room can see a list of other users currently online in that roo
 - **FR-036**: System MUST log timestamp and relevant context (user, room) with each log entry
 
 #### Data Management
-- **FR-037**: System MUST store message history for at least 7 days
+- **FR-037**: System MUST store message history for at least 7 days (this is retention policy; see FR-030 for crash recovery persistence)
 - **FR-038**: System MUST store up to 1000 messages per chat room (older messages archived)
 - **FR-039**: Empty chat rooms (no messages) MUST be automatically cleaned up and not persist
 
 ### Key Entities
 
 - **Message**: Represents a single chat message, containing the message text content, sender's display name, timestamp of when sent, and the chat room it belongs to
-- **Chat Room**: Represents a user-created conversation space, containing a unique room name (created by users), collection of messages in that room, creation timestamp, and list of currently active users in the room
+- **ChatRoom**: Represents a user-created conversation space, containing a unique room name (created by users), collection of messages in that room, creation timestamp, and list of currently active users in the room
 - **User Session**: Represents an active user connection, containing the user's chosen display name, the chat room they're currently in, connection status, and session identifier
 - **Active User**: Represents a user's presence in a chat room, containing their display name, join timestamp, and last activity timestamp for timeout detection
 

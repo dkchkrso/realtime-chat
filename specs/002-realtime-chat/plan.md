@@ -139,7 +139,9 @@ src/
 │   │   └── server.ts         # Server WebSocket handler
 │   ├── storage/
 │   │   └── messages.ts       # Message persistence layer
-│   └── profanity-filter.ts   # Content moderation
+│   ├── profanity-filter.ts   # Content moderation
+│   ├── rate-limiter.ts       # Rate limiting utility
+│   └── logger.ts             # Structured logging utility
 ├── types/
 │   ├── message.ts            # Message type definitions
 │   ├── room.ts               # ChatRoom types
