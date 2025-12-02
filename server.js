@@ -38,7 +38,8 @@ app.prepare().then(() => {
   let wsHandlers;
   import('./src/lib/websocket/server.ts')
     .then((module) => {
-      wsHandlers = module;
+      // Handle both default and named exports
+      wsHandlers = module.default || module;
       console.log('[Server] WebSocket handlers loaded');
     })
     .catch((error) => {
