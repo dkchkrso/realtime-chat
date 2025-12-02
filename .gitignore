@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing (Not used per constitution, but listed for clarity)
+/coverage
+
+# Next.js
+/.next/
+/out/
+.next
+out
+
+# Production
+/build
+dist/
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Database (SQLite)
+*.db-shm
+*.db-wal
+# Note: chat.db is kept in data/ directory for persistence
+
+# OS
+.DS_Store
+Thumbs.db
