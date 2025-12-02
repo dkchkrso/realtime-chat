@@ -1,20 +1,19 @@
 <!--
-Sync Impact Report - Constitution v1.0.0
+Sync Impact Report - Constitution v1.1.0
 ========================================
-Version: Initial → 1.0.0 (MAJOR - initial ratification)
+Version: 1.0.0 → 1.1.0 (MINOR - new principle added)
 Ratified: 2025-12-02
-Principles Defined:
-  - I. Simplicity First
-  - II. Component-Based Design
-  - III. Type Safety
-Sections Added:
-  - Technology Stack
-  - Quality Standards
+Last Amended: 2025-12-02
+Principles Modified:
+  - Added: IV. No Testing
+Sections Modified:
+  - Quality Standards: Removed testing references
 Templates Status:
-  ✅ plan-template.md - Constitution Check section compatible
-  ✅ spec-template.md - Requirements structure compatible
-  ✅ tasks-template.md - Task organization compatible
-Follow-up: None - all templates align with constitution principles
+  ✅ plan-template.md - Updated to remove testing references
+  ✅ spec-template.md - Acceptance scenarios remain (these are requirements, not tests)
+  ✅ tasks-template.md - Updated to remove all test task examples
+  ✅ checklist-template.md - No testing-specific guidance present
+Follow-up: None - all templates updated to align with no-testing principle
 -->
 
 # Demo Site Constitution
@@ -39,6 +38,12 @@ TypeScript must be enabled for all code. Component props must be explicitly type
 
 **Rationale**: Type safety catches errors at compile time, improves IDE support, and serves as living documentation for component APIs.
 
+### IV. No Testing
+
+This project MUST NOT include any testing infrastructure, test files, or testing dependencies. No unit tests, integration tests, end-to-end tests, or any other form of automated testing. Do not add testing frameworks (Jest, Vitest, Testing Library, etc.) to dependencies.
+
+**Rationale**: This is a demonstration site with a limited scope. Testing infrastructure adds complexity, maintenance burden, and development overhead that are not justified for a simple demo project. Focus development effort on building clear, working features instead.
+
 ## Technology Stack
 
 **Framework**: Next.js 14+ (App Router preferred)  
@@ -52,7 +57,7 @@ All dependencies must be actively maintained. Prefer official Next.js and React 
 ## Quality Standards
 
 **Code Style**: ESLint and Prettier must be configured and enforced via pre-commit hooks or CI.  
-**Responsive Design**: All pages and components must be mobile-responsive (tested at 320px, 768px, 1024px, 1920px viewports).  
+**Responsive Design**: All pages and components must be mobile-responsive (verified manually at 320px, 768px, 1024px, 1920px viewports).  
 **Accessibility**: Semantic HTML required; keyboard navigation must work; color contrast must meet WCAG AA minimum.  
 **Performance**: Lighthouse performance score should target 90+ on production builds.
 
@@ -60,6 +65,6 @@ All dependencies must be actively maintained. Prefer official Next.js and React 
 
 This constitution guides all development decisions for the demo site. For a project of this scope, amendments do not require formal approval but should be documented via git commits with clear rationale.
 
-Constitution supersedes ad-hoc styling or architectural decisions. When in doubt, refer back to the three core principles: Simplicity, Component-Based Design, and Type Safety.
+Constitution supersedes ad-hoc styling or architectural decisions. When in doubt, refer back to the four core principles: Simplicity, Component-Based Design, Type Safety, and No Testing.
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
+**Version**: 1.1.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
