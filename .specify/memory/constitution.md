@@ -1,50 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report - Constitution v1.0.0
+========================================
+Version: Initial → 1.0.0 (MAJOR - initial ratification)
+Ratified: 2025-12-02
+Principles Defined:
+  - I. Simplicity First
+  - II. Component-Based Design
+  - III. Type Safety
+Sections Added:
+  - Technology Stack
+  - Quality Standards
+Templates Status:
+  ✅ plan-template.md - Constitution Check section compatible
+  ✅ spec-template.md - Requirements structure compatible
+  ✅ tasks-template.md - Task organization compatible
+Follow-up: None - all templates align with constitution principles
+-->
+
+# Demo Site Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity First
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Keep the demo site minimal and focused. Apply YAGNI (You Aren't Gonna Need It) principles rigorously. Avoid over-engineering, premature optimization, or adding features "just in case." Every component, page, and feature must serve a clear, demonstrable purpose.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Rationale**: Demo sites should showcase core functionality clearly without unnecessary complexity that obscures the demonstration value.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Component-Based Design
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+Build reusable React components following composition patterns. Use Tailwind CSS utility classes for styling. Maintain consistent design patterns across all UI elements. Components must be self-contained with clear props interfaces.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Component-based architecture ensures maintainability, reusability, and consistent user experience across the demo site.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. Type Safety
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+TypeScript must be enabled for all code. Component props must be explicitly typed. No `any` types allowed in production code—use `unknown` with type guards when necessary. Leverage TypeScript's type inference where appropriate.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rationale**: Type safety catches errors at compile time, improves IDE support, and serves as living documentation for component APIs.
+
+## Technology Stack
+
+**Framework**: Next.js 14+ (App Router preferred)  
+**Styling**: Tailwind CSS 3+  
+**Language**: TypeScript (strict mode enabled)  
+**Package Manager**: npm, yarn, or pnpm  
+**Node Version**: 18+ LTS
+
+All dependencies must be actively maintained. Prefer official Next.js and React patterns over third-party abstractions.
+
+## Quality Standards
+
+**Code Style**: ESLint and Prettier must be configured and enforced via pre-commit hooks or CI.  
+**Responsive Design**: All pages and components must be mobile-responsive (tested at 320px, 768px, 1024px, 1920px viewports).  
+**Accessibility**: Semantic HTML required; keyboard navigation must work; color contrast must meet WCAG AA minimum.  
+**Performance**: Lighthouse performance score should target 90+ on production builds.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution guides all development decisions for the demo site. For a project of this scope, amendments do not require formal approval but should be documented via git commits with clear rationale.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Constitution supersedes ad-hoc styling or architectural decisions. When in doubt, refer back to the three core principles: Simplicity, Component-Based Design, and Type Safety.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
